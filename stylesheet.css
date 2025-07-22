@@ -133,3 +133,52 @@ h2 {
 span.highlight {
   background-color: #ffffd0;
 }
+
+/* Additional styles for better project presentation */
+.project-links {
+  margin-top: 5px;
+}
+
+.project-links a {
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+/* Better spacing for experience section */
+.experience-item {
+  margin-bottom: 15px;
+}
+
+.experience-item ul {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.experience-item li {
+  margin-bottom: 3px;
+}
+
+/* Highlight current work */
+tr[bgcolor="#ffffd0"] {
+  background-color: #ffffd0;
+}
+
+/* Better mobile responsiveness */
+@media (max-width: 768px) {
+  .name {
+    font-size: 24px !important;
+  }
+  
+  table {
+    width: 95% !important;
+  }
+  
+  td[style*="width:25%"] {
+    width: 100% !important;
+    text-align: center;
+  }
+  
+  td[style*="width:75%"] {
+    width: 100% !important;
+  }
+}
