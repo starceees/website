@@ -1214,6 +1214,25 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="card" style="display: flex; gap: 2rem; align-items: center;">
+                    <img src="./data/nano_2022.png" alt="TeNWs pressure sensors" 
+                         style="width: 120px; height: 90px; border-radius: 8px; object-fit: cover;">
+                    <div style="flex: 1;">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">
+                            TeNWs/Ti3C2Tx Nanohybrid-Based Flexible Pressure Sensors for Personal Safety Applications Using Morse Code
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic;">
+                            Vivek Adepu, Manav Tathacharya, <strong style="color: var(--accent-cyan);">Raghuram CS</strong>, Venkat Mattela, Parikshit Sahatiya
+                        </p>
+                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">
+                            ACS Applied Nano Materials, 2022
+                        </p>
+                        <a href="https://pubs.acs.org/doi/abs/10.1021/acsanm.2c04090" target="_blank" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1221,70 +1240,310 @@
     <!-- Projects -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">
+                A curated selection of my most impactful research and development work
+            </p>
             <div class="grid-3">
+                <!-- DDColor Image Colorization -->
                 <div class="card">
                     <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
                                 height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
-                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Scheduling AI</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-blue);">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">DDColor Image Colorization</h3>
+                    </div>
                     <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
-                        AI-powered scheduling system using machine learning algorithms for 
-                        resource allocation and task management optimization.
+                        Extended implementation of dual decoder architecture for photo-realistic image colorization 
+                        with applications in historical film restoration and artistic style transfer. Trained on 
+                        ImageNet and WikiArt datasets achieving high-fidelity results.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">PyTorch</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Computer Vision</span>
                         <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Python</span>
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">GAN</span>
                         <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ML</span>
-                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">FastAPI</span>
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ConvNeXt</span>
                     </div>
-                    <a href="https://github.com/starceees/scheduling-ai-.git" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> View Code
-                    </a>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://github.com/starceees/ddcolor_dl_final" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <span style="background: var(--accent-cyan); color: white; padding: 0.25rem 0.75rem; 
+                                    border-radius: 12px; font-size: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-star" style="margin-right: 0.25rem;"></i> 2 Stars
+                        </span>
+                    </div>
                 </div>
 
+                <!-- MR Image Reconstruction -->
                 <div class="card">
                     <div style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); 
                                 height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
-                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">UR10e Robotic Control</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-cyan);">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">MR Image Reconstruction</h3>
+                    </div>
                     <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
-                        Advanced control system for UR10e robotic arm with precise trajectory 
-                        planning and manipulation capabilities.
+                        Deep learning pipeline for accelerated cardiac MRI reconstruction using custom UNet2D 
+                        architecture. Comprehensive comparison with nnUNet framework on Medical Segmentation 
+                        Decathlon Task02_Heart dataset with automated evaluation metrics.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">PyTorch</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Medical AI</span>
                         <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ROS</span>
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">U-Net</span>
                         <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">C++</span>
-                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Robotics</span>
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">nnUNet</span>
                     </div>
-                    <a href="https://github.com/starceees/ur10e_lift.git" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/starceees/MR-Image-Reconstruction-Using-Deep-Learning" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
 
+                <!-- CIFAR-10 ResNet Global Optima -->
                 <div class="card">
                     <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
                                 height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
-                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">MR Image Reconstruction</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-blue);">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">CIFAR-10 ResNet Optimization</h3>
+                    </div>
                     <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
-                        Deep learning approach for accelerated MRI reconstruction using 
-                        advanced neural networks and medical imaging techniques.
+                        Modified ResNet architecture optimized for CIFAR-10 classification with parameter 
+                        constraint of <5M parameters. Achieved competitive performance through efficient 
+                        network design and advanced training techniques.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
                                     padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">PyTorch</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ResNet</span>
                         <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Medical AI</span>
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">CIFAR-10</span>
                         <span style="background: var(--bg-tertiary); color: var(--text-primary); 
-                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Deep Learning</span>
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Optimization</span>
                     </div>
-                    <a href="https://github.com/starceees/MR-Image-Reconstruction-Using-Deep-Learning.git" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/starceees/CIFAR-10-ResNet-Global-Optima" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
+
+                <!-- Robotic Fish -->
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-cyan);">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">Autonomous Robotic Fish</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Autonomous soft robotic fish with advanced locomotion control. Features bio-inspired 
+                        actuator design for sophisticated underwater movements and maneuverability. 
+                        Complete CAD models and control systems included.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">C++</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Robotics</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">CAD</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Bio-inspired</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://github.com/starceees/Robotic-Fish" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <span style="background: var(--accent-cyan); color: white; padding: 0.25rem 0.75rem; 
+                                    border-radius: 12px; font-size: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-star" style="margin-right: 0.25rem;"></i> 2 Stars
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Deep Learning Pose Estimation -->
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-blue);">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">SIFT-based Pose Estimation</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Novel approach combining SIFT feature detection with deep learning for 6DOF pose 
+                        estimation of stationary objects using multiview monochrome cameras. Advanced 
+                        computer vision pipeline for accurate state estimation.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Python</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">SIFT</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Pose Estimation</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Computer Vision</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://github.com/starceees/Deep-Learning-pose-estimation-using-SIFT" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <span style="background: var(--accent-cyan); color: white; padding: 0.25rem 0.75rem; 
+                                    border-radius: 12px; font-size: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-star" style="margin-right: 0.25rem;"></i> 1 Star
+                        </span>
+                    </div>
+                </div>
+
+                <!-- UR10e Robotic Control -->
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-cyan);">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">UR10e Robotic Control</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Advanced control system for UR10e robotic arm featuring precise trajectory planning, 
+                        real-time manipulation capabilities, and ROS integration for complex automation tasks. 
+                        Includes safety protocols and inverse kinematics solutions.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">C++</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ROS</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Motion Planning</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Manipulation</span>
+                    </div>
+                    <a href="https://github.com/starceees/ur10e_lift" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+
+                <!-- Sign Language to Speech -->
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-blue);">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">Sign Language to Speech</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Assistive technology system that converts sign language gestures into speech using 
+                        computer vision and machine learning. Real-time gesture recognition with natural 
+                        language processing for seamless communication.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Python</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Computer Vision</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">NLP</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Accessibility</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://github.com/starceees/Sign-Language-to-Speech" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <span style="background: var(--accent-cyan); color: white; padding: 0.25rem 0.75rem; 
+                                    border-radius: 12px; font-size: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-star" style="margin-right: 0.25rem;"></i> 1 Star
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Vision Transformers -->
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-cyan);">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">Vision Transformers</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Implementation and experimentation with Vision Transformer (ViT) architectures for 
+                        various computer vision tasks. Exploring attention mechanisms and transformer-based 
+                        approaches for image classification and feature learning.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">PyTorch</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Transformers</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ViT</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Attention</span>
+                    </div>
+                    <a href="https://github.com/starceees/Vision-Transformers" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+
+                <!-- Scheduling AI -->
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem; color: var(--accent-blue);">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 style="color: var(--text-primary); margin: 0;">Intelligent Scheduling AI</h3>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        AI-powered scheduling system using machine learning algorithms for optimal resource 
+                        allocation and task management. Features intelligent optimization, constraint handling, 
+                        and adaptive learning from user patterns.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--accent-blue); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">TypeScript</span>
+                        <span style="background: var(--bg-tertiary); color: var(--accent-cyan); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ML</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Optimization</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">FastAPI</span>
+                    </div>
+                    <a href="https://github.com/starceees/scheduling-ai-" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://github.com/starceees?tab=repositories" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View All Projects on GitHub
+                </a>
             </div>
         </div>
     </section>
