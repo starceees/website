@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raghuram Cauligi Srinivas - Research Portfolio</title>
     <link rel="icon" href="./favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2c5530;
-            --accent-color: #d69e2e;
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
-            --background: #ffffff;
-            --background-alt: #f7fafc;
-            --border-color: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1f2937;
+            --accent-blue: #3b82f6;
+            --accent-blue-dark: #1d4ed8;
+            --accent-cyan: #06b6d4;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border-primary: #374151;
+            --border-secondary: #4b5563;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --glow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
 
         * {
@@ -27,15 +31,415 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--background);
+        html {
+            scroll-behavior: smooth;
         }
 
-        .serif {
-            font-family: 'Crimson Text', serif;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-primary);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: var(--glow);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.1);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-greeting {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-name {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 50%, var(--accent-cyan) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Hero Image */
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .profile-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-blue);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.5);
+        }
+
+        .image-float {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .float-1 { top: 10%; right: -10%; animation-delay: 0s; }
+        .float-2 { bottom: 20%; left: -15%; animation-delay: 1s; }
+        .float-3 { top: 50%; right: -20%; animation-delay: 2s; }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-name { font-size: 2.5rem; }
+            .profile-image { width: 250px; height: 250px; }
+            .hero-buttons { justify-content: center; }
+            .social-links { justify-content: center; }
         }
 
         /* Header */
@@ -577,399 +981,427 @@
                 margin-left: 0;
                 align-self: flex-start;
             }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <img src="./data/profile_pic.jpg" alt="Raghuram Cauligi Srinivas" class="profile-image">
-                <div class="header-info">
-                    <h1>Raghuram Cauligi Srinivas</h1>
-                    <div class="subtitle">Graduate Research Assistant</div>
-                    <div class="affiliation">Agile Robotics and Perception Lab (ARPL), New York University</div>
-                    <div class="contact-links">
-                        <a href="mailto:rc5428@nyu.edu" class="contact-link">
-                            <i class="fas fa-envelope"></i> rc5428@nyu.edu
-                        </a>
-                        <a href="./data/resume_robotics.pdf" target="_blank" class="contact-link">
-                            <i class="fas fa-file-pdf"></i> CV
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=IcGuFeAAAAAJ&hl=en" target="_blank" class="contact-link">
-                            <i class="fas fa-graduation-cap"></i> Google Scholar
-                        </a>
-                        <a href="https://github.com/starceees" target="_blank" class="contact-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/raghuram-cs-902a76181/" target="_blank" class="contact-link">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+    <canvas class="network-bg" id="networkCanvas"></canvas>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <ul class="nav-list">
+            <a href="#home" class="logo mono">RCS</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#research" class="nav-link">Research</a></li>
                 <li><a href="#publications" class="nav-link">Publications</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Research Interests -->
-        <section id="research" class="section">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-greeting">Hi There, I'm</div>
+                <h1 class="hero-name">Raghuram<br>Srinivas</h1>
+                <h2 class="hero-title mono">Research & Development Engineer</h2>
+                <p class="hero-description">
+                    I'm passionate about autonomous systems, computer vision, and deep learning. 
+                    Currently working on cutting-edge research in robotics and AI at NYU's ARPL lab, 
+                    pushing the boundaries of what's possible with intelligent systems.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-user"></i> About Me
+                    </a>
+                    <a href="./data/resume_robotics.pdf" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/starceees" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/raghuram-cs-902a76181/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=IcGuFeAAAAAJ&hl=en" target="_blank" class="social-link">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="mailto:rc5428@nyu.edu" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./data/profile_pic.jpg" alt="Raghuram Cauligi Srinivas" class="profile-image">
+                <div class="image-float float-1"><i class="fas fa-robot"></i></div>
+                <div class="image-float float-2"><i class="fas fa-brain"></i></div>
+                <div class="image-float float-3"><i class="fas fa-code"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">
+                Graduate Research Assistant passionate about autonomous systems and AI
+            </p>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        Currently pursuing graduate studies at New York University, working with the 
+                        Agile Robotics and Perception Lab (ARPL) under Prof. Giuseppe Loianno. 
+                        My research focuses on autonomous quadrotor systems, computer vision, 
+                        and advanced control systems.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">
+                        <i class="fas fa-lightbulb"></i> Research Focus
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        My work spans computer vision, deep learning, and signal processing 
+                        for autonomous systems. I specialize in flight controller optimization, 
+                        sensor integration, and real-time navigation systems for UAVs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" class="section">
+        <div class="container">
             <h2 class="section-title">Research Interests</h2>
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3><i class="fas fa-eye"></i> Computer Vision</h3>
-                    <p>Developing advanced computer vision algorithms for autonomous systems, with focus on real-time object detection, tracking, and scene understanding for robotic applications.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <div style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Computer Vision</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        Developing advanced algorithms for real-time object detection, tracking, 
+                        and scene understanding in autonomous systems.
+                    </p>
                 </div>
-                <div class="research-card">
-                    <h3><i class="fas fa-brain"></i> Deep Learning</h3>
-                    <p>Applying neural networks and machine learning techniques to solve complex problems in robotics, signal processing, and autonomous navigation systems.</p>
+                <div class="card">
+                    <div style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 1rem;">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Deep Learning</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        Applying neural networks to solve complex problems in robotics, 
+                        signal processing, and autonomous navigation.
+                    </p>
                 </div>
-                <div class="research-card">
-                    <h3><i class="fas fa-robot"></i> Autonomous Systems</h3>
-                    <p>Research on autonomous quadrotor systems, flight controller optimization, and integration of sensing technologies for precise navigation and control.</p>
-                </div>
-                <div class="research-card">
-                    <h3><i class="fas fa-wave-square"></i> Signal Processing</h3>
-                    <p>Advanced signal processing techniques for sensor fusion, state estimation, and real-time data processing in robotic and autonomous systems.</p>
+                <div class="card">
+                    <div style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Autonomous Systems</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        Research on quadrotor systems, flight controller optimization, 
+                        and multi-agent coordination for complex missions.
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Publications -->
-        <section id="publications" class="section">
-            <h2 class="section-title">Publications</h2>
-            
-            <div class="publication featured">
-                <div class="publication-header">
-                    <img src="./data/Nano_2023.png" alt="MXene nanohybrid sensors" class="publication-image">
-                    <div class="publication-meta">
-                        <h3 class="publication-title">MXene (Ti3C2Tx)/TMD (ReSe2) nanohybrid-based flexible electromechanical sensors for cervical collar strain and shoulder load detection applications</h3>
-                        <div class="publication-authors">
-                            Vivek Adepu, Manav Tathacharya, <span class="author-highlight">Raghuram CS</span>, Venkat Mattela, Parikshit Sahatiya
+    <!-- Publications -->
+    <section id="publications" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Publications</h2>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="card" style="display: flex; gap: 2rem; align-items: center;">
+                    <img src="./data/Nano_2023.png" alt="MXene nanohybrid sensors" 
+                         style="width: 120px; height: 90px; border-radius: 8px; object-fit: cover;">
+                    <div style="flex: 1;">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">
+                            MXene (Ti3C2Tx)/TMD (ReSe2) nanohybrid-based flexible electromechanical sensors
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic;">
+                            Vivek Adepu, Manav Tathacharya, <strong style="color: var(--accent-cyan);">Raghuram CS</strong>, Venkat Mattela, Parikshit Sahatiya
+                        </p>
+                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">
+                            Journal of Micromechanics and Microengineering, 2023
+                        </p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="https://iopscience.iop.org/article/10.1088/1361-6439/acfc52/pdf" 
+                               target="_blank" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <span style="background: var(--accent-blue); color: white; padding: 0.25rem 0.75rem; 
+                                        border-radius: 12px; font-size: 0.8rem;">Featured</span>
                         </div>
-                        <div class="publication-venue">Journal of Micromechanics and Microengineering, 2023</div>
-                        <span class="pub-badge">Featured</span>
                     </div>
                 </div>
-                <div class="publication-description">
-                    Developed low-cost ReSe₂/Ti₃C₂Tx nanohybrid flexible sensors for wearable strain and load detection systems with high sensitivity, fast response, and wireless data transfer capabilities for healthcare applications.
-                </div>
-                <div class="publication-links">
-                    <a href="https://iopscience.iop.org/article/10.1088/1361-6439/acfc52/pdf" target="_blank" class="pub-link">
-                        <i class="fas fa-file-pdf"></i> PDF
-                    </a>
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-quote-left"></i> Cite
-                    </a>
-                </div>
-            </div>
 
-            <div class="publication">
-                <div class="publication-header">
-                    <img src="./data/Legged_robotics_2022.png" alt="Legged robots review" class="publication-image">
-                    <div class="publication-meta">
-                        <h3 class="publication-title">Legged robots for object manipulation: A review</h3>
-                        <div class="publication-authors">
-                            Yifeng Gong, Ge Sun, Aditya Nair, Aditya Bidwai, <span class="author-highlight">Raghuram CS</span>, John Grezmak, Guillaume Sartoretti, Kathryn A Daltorio
-                        </div>
-                        <div class="publication-venue">Frontiers in Mechanical Engineering, 2023</div>
+                <div class="card" style="display: flex; gap: 2rem; align-items: center;">
+                    <img src="./data/Legged_robotics_2022.png" alt="Legged robots review" 
+                         style="width: 120px; height: 90px; border-radius: 8px; object-fit: cover;">
+                    <div style="flex: 1;">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">
+                            Legged robots for object manipulation: A review
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic;">
+                            Yifeng Gong, Ge Sun, Aditya Nair, Aditya Bidwai, <strong style="color: var(--accent-cyan);">Raghuram CS</strong>, John Grezmak, Guillaume Sartoretti, Kathryn A Daltorio
+                        </p>
+                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">
+                            Frontiers in Mechanical Engineering, 2023
+                        </p>
+                        <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
                     </div>
                 </div>
-                <div class="publication-description">
-                    Comprehensive review of legged robots for object manipulation applications, covering recent advances in locomotion-manipulation coordination and future research directions.
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-file-pdf"></i> PDF
-                    </a>
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-quote-left"></i> Cite
-                    </a>
-                </div>
-            </div>
 
-            <div class="publication">
-                <div class="publication-header">
-                    <img src="./data/nano_2022.png" alt="TeNWs pressure sensors" class="publication-image">
-                    <div class="publication-meta">
-                        <h3 class="publication-title">TeNWs/Ti3C2Tx Nanohybrid-Based Flexible Pressure Sensors for Personal Safety Applications Using Morse Code</h3>
-                        <div class="publication-authors">
-                            Vivek Adepu, Manav Tathacharya, <span class="author-highlight">Raghuram CS</span>, Venkat Mattela, Parikshit Sahatiya
-                        </div>
-                        <div class="publication-venue">ACS Applied Nano Materials, 2022</div>
+                <div class="card" style="display: flex; gap: 2rem; align-items: center;">
+                    <img src="./data/SIFT_2021.png" alt="Underwater SIFT mapping" 
+                         style="width: 120px; height: 90px; border-radius: 8px; object-fit: cover;">
+                    <div style="flex: 1;">
+                        <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">
+                            Shallow Depth SIFT Based Approach for Mapping underwater surfaces using AUV's
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic;">
+                            <strong style="color: var(--accent-cyan);">Raghuram CS</strong>, Sai Anoop Sadineni
+                        </p>
+                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">
+                            2021 21st International Conference on Control, Automation and Systems (ICCAS), 2021
+                        </p>
+                        <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
                     </div>
                 </div>
-                <div class="publication-description">
-                    Developed flexible pressure sensors using TeNWs/Ti₃C₂Tx nanohybrids for personal safety applications with Morse code communication capabilities.
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-file-pdf"></i> PDF
-                    </a>
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-quote-left"></i> Cite
-                    </a>
-                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="publication">
-                <div class="publication-header">
-                    <img src="./data/SIFT_2021.png" alt="Underwater SIFT mapping" class="publication-image">
-                    <div class="publication-meta">
-                        <h3 class="publication-title">Shallow Depth SIFT Based Approach for Mapping underwater surfaces using AUV's</h3>
-                        <div class="publication-authors">
-                            <span class="author-highlight">Raghuram CS</span>, Sai Anoop Sadineni
-                        </div>
-                        <div class="publication-venue">2021 21st International Conference on Control, Automation and Systems (ICCAS), 2021</div>
-                    </div>
-                </div>
-                <div class="publication-description">
-                    Novel approach for underwater surface mapping using Autonomous Underwater Vehicles with shallow depth SIFT feature extraction for enhanced navigation and mapping capabilities.
-                </div>
-                <div class="publication-links">
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-file-pdf"></i> PDF
-                    </a>
-                    <a href="#" class="pub-link">
-                        <i class="fas fa-quote-left"></i> Cite
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="section">
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="container">
             <h2 class="section-title">Selected Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Scheduling AI</h3>
-                        <div class="project-subtitle">Machine Learning System</div>
+            <div class="grid-3">
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Scheduling AI</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        AI-powered scheduling system using machine learning algorithms for 
+                        resource allocation and task management optimization.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Python</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ML</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">FastAPI</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            AI-powered scheduling system for optimizing resource allocation and task management using advanced machine learning algorithms and optimization techniques.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/starceees/scheduling-ai-.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
+                    <a href="https://github.com/starceees/scheduling-ai-.git" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">UR10e Robotic Arm Control</h3>
-                        <div class="project-subtitle">Robotics & Control</div>
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">UR10e Robotic Control</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Advanced control system for UR10e robotic arm with precise trajectory 
+                        planning and manipulation capabilities.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">ROS</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">C++</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Robotics</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Advanced control system for UR10e robotic arm for lifting and manipulation tasks with precise trajectory planning and execution capabilities.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">ROS</span>
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Robotics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/starceees/ur10e_lift.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
+                    <a href="https://github.com/starceees/ur10e_lift.git" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">MR Image Reconstruction</h3>
-                        <div class="project-subtitle">Deep Learning & Medical Imaging</div>
+                <div class="card">
+                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); 
+                                height: 4px; margin: -2rem -2rem 2rem -2rem;"></div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">MR Image Reconstruction</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+                        Deep learning approach for accelerated MRI reconstruction using 
+                        advanced neural networks and medical imaging techniques.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">PyTorch</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Medical AI</span>
+                        <span style="background: var(--bg-tertiary); color: var(--text-primary); 
+                                    padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem;">Deep Learning</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Deep learning-based approach for accelerated MRI reconstruction, reducing scan times while maintaining image quality using advanced neural networks.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">Medical Imaging</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/starceees/MR-Image-Reconstruction-Using-Deep-Learning.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
+                    <a href="https://github.com/starceees/MR-Image-Reconstruction-Using-Deep-Learning.git" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Cuboid Decomposition</h3>
-                        <div class="project-subtitle">3D Vision & Path Planning</div>
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">
+                I'm always interested in discussing research opportunities, collaborations, or new projects
+            </p>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div class="card" style="text-align: center; padding: 3rem;">
+                    <div style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 2rem;">
+                        <i class="fas fa-paper-plane"></i>
                     </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Advanced algorithms for 3D space decomposition into cuboid primitives for path planning and obstacle avoidance in robotics applications.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">3D Vision</span>
-                            <span class="tech-tag">Path Planning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/starceees/cuboid_decomp-.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Image Colorization</h3>
-                        <div class="project-subtitle">Computer Vision & GANs</div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Deep learning model for automatic image colorization using dual decoder architecture, achieving high-fidelity color restoration for grayscale images.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">GANs</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/starceees/ddcolor_dl_final.git" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Let's Connect</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
+                        Whether you're interested in research collaboration, have questions about my work, 
+                        or just want to connect, I'd love to hear from you.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="mailto:rc5428@nyu.edu" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                        <a href="./data/resume_robotics.pdf" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience" class="section">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Graduate Research Assistant</h3>
-                                <div class="timeline-company">Agile Robotics and Perception Lab (ARPL), New York University</div>
-                            </div>
-                            <div class="timeline-period">Nov 2023 - Present</div>
-                        </div>
-                        <div class="timeline-description">
-                            Conducting research on autonomous quadrotor systems under the supervision of Prof. Giuseppe Loianno.
-                            <ul>
-                                <li>Tuning PX4 flight controller gains for dynamic performance optimization and enhanced flight stability</li>
-                                <li>Integrating and calibrating RealSense cameras for precise navigation using Extended Kalman Filter (EKF)</li>
-                                <li>Developing autonomous quadrotor systems for complex mission scenarios and real-world deployments</li>
-                                <li>Collaborating on multi-agent systems and swarm robotics applications</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Software Engineering Intern</h3>
-                                <div class="timeline-company">Scoutos Inc.</div>
-                            </div>
-                            <div class="timeline-period">Jun - Aug 2024</div>
-                        </div>
-                        <div class="timeline-description">
-                            Developed scalable systems for large language model evaluation and deployment.
-                            <ul>
-                                <li>Developed scalable LLM evaluation systems using FastAPI and Docker on Google Cloud Platform</li>
-                                <li>Optimized NLP pipelines for enhanced performance and reduced latency in production environments</li>
-                                <li>Implemented distributed computing solutions for large-scale language model training and inference</li>
-                                <li>Contributed to the development of automated testing frameworks for AI model validation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Research Intern</h3>
-                                <div class="timeline-company">Robert Bosch Centre for Cyber-Physical Systems, IISc</div>
-                            </div>
-                            <div class="timeline-period">May - Jul 2023</div>
-                        </div>
-                        <div class="timeline-description">
-                            Worked on drone localization and mapping technologies for autonomous navigation systems.
-                            <ul>
-                                <li>Developed algorithms for improved drone localization accuracy in GPS-denied environments</li>
-                                <li>Implemented SLAM (Simultaneous Localization and Mapping) techniques for real-time navigation</li>
-                                <li>Contributed to the development of sensor fusion algorithms for multi-modal perception</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Camera Systems Intern</h3>
-                                <div class="timeline-company">Ayurythm Technologies</div>
-                            </div>
-                            <div class="timeline-period">Jan - Apr 2023</div>
-                        </div>
-                        <div class="timeline-description">
-                            Focused on camera signal processing and image enhancement algorithms.
-                            <ul>
-                                <li>Developed advanced camera signal processing algorithms for improved image quality</li>
-                                <li>Implemented real-time image enhancement techniques for embedded camera systems</li>
-                                <li>Optimized computer vision pipelines for mobile and embedded platforms</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer style="background: var(--bg-secondary); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-primary);">
         <div class="container">
-            <p>&copy; 2024 Raghuram Cauligi Srinivas. All rights reserved.</p>
+            <p style="color: var(--text-muted);">
+                &copy; 2024 Raghuram Cauligi Srinivas. Built with passion for research and innovation.
+            </p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Network animation background
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createParticles() {
+            particles = [];
+            const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 2 + 1
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                const particle = particles[i];
+                
+                // Update position
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // Wrap around edges
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+                
+                // Draw particle
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    const other = particles[j];
+                    const dist = Math.sqrt(
+                        Math.pow(particle.x - other.x, 2) + 
+                        Math.pow(particle.y - other.y, 2)
+                    );
+                    
+                    if (dist < 150) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.2 * (1 - dist / 150)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(other.x, other.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(drawParticles);
+        }
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active nav link
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -983,27 +1415,15 @@
             });
         });
 
-        // Active navigation link highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+        // Initialize
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createParticles();
         });
+
+        resizeCanvas();
+        createParticles();
+        drawParticles();
     </script>
 </body>
 </html>
